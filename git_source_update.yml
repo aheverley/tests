@@ -12,7 +12,7 @@
         create: yes
       register: hostname
 
-    -debug:
+    - debug:
        var:  hostname
 
     - name: write hostname to file
