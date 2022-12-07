@@ -1,5 +1,5 @@
 ---
-- name: update packages
+- name: update file with information
   hosts: all
   become: yes
 
@@ -9,7 +9,7 @@
         path: /tmp/hostfile.txt
         line: "This hostname is {{ ansible_hostname }}"
         state: present
-        create: true
+        create: yes
       register: hostname
 
     - name: write hostname to file
