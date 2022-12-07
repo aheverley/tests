@@ -17,5 +17,5 @@
 
     - name: write hostname to file
       copy:
-        content: "{{hostname.stdout}}"
+        content: "{{ ansible_hostname}}"
         dest: "/root/tests/hostfile.txt"
