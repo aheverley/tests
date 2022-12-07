@@ -12,6 +12,9 @@
         create: yes
       register: hostname
 
+    -debug:
+       var:  hostname
+
     - name: write hostname to file
       copy:
         content: "{{hostname.stdout}}"
