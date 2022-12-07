@@ -1,0 +1,16 @@
+---
+- name: update packages
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Update file with Information
+      ansible.builtin.lineinfile:
+        path: /tmp/hostfile.txt
+        line: "This hostname is {{ ansible_hostname }}"
+      register: hostname
+
+    - name: write hostname to file
+      copy:
+        content: "{{hostname.stdout}}"
+        dest: "/root/tests/hostfile.txt"
