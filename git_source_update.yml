@@ -8,6 +8,7 @@
       ansible.builtin.lineinfile:
         path: /tmp/hostfile.txt
         line: "This hostname is {{ ansible_hostname }}"
+        state: present
       register: hostname
 
     - name: write hostname to file
